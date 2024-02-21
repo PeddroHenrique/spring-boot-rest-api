@@ -4,15 +4,15 @@
  */
 package br.com.springbootrestapi.repository;
 
-import br.com.springbootrestapi.entity.Post;
-import java.util.List;
+import br.com.springbootrestapi.entity.Role;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Pedro
  */
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long>{
     
-    List<Post> findByCategoryId(Long categoryId);
+    Optional<Role> findByName(String name);
 }

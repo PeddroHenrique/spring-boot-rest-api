@@ -12,11 +12,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import java.util.HashSet;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,30 +27,29 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
 @Entity
-@Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})})
-public class Post {
-
+@Table(name = "users")
+public class User {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(nullable = false, unique = true)
+    private String username;
     
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(nullable = false, unique = true)
+    private String email;
     
-    @Column(name = "content", nullable = false)
-    private String content;
+    @Column(nullable = false)
+    private String password;
     
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Comment> comments = new HashSet<>();
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+           inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> role;
 }
