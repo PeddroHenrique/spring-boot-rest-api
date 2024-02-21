@@ -4,10 +4,21 @@
  */
 package br.com.springbootrestapi.payload;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  *
  * @author Pedro
  */
-public class CommentResponse {
-    
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class CategoryDto {
+    private Long id;
+    private String name;
+    private String description;
 }

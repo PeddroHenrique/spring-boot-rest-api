@@ -5,10 +5,10 @@ spring:
     username: root
     password: root
 
-# Driver jdbc
+    # Driver jdbc
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-# Hibernate e JPA
+  # Hibernate e JPA
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     properties:
@@ -18,3 +18,8 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: true
+
+app:
+  jwt-secret: ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981
+
+app-jwt-expiration-milliseconds: 604800000
