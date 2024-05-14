@@ -7,6 +7,7 @@ package br.com.springbootrestapi.payload;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 import lombok.Data;
 
@@ -16,9 +17,9 @@ import lombok.Data;
  */
 @Data
 @Schema(
-        description = "PostDto Model Information"
+        description = "PostDtoV2 Model Information"
 )
-public class PostDto {
+public class PostDtoV2 {
     
     @Schema(
         description = "Blog Post unique identifier number"
@@ -54,4 +55,10 @@ public class PostDto {
             description = "Blog Post Category"
     )
     private Long categoryId;
+    
+    @Schema(
+            description = "Blog Post Tags"
+    )
+    private List<String> tags;
 }
+

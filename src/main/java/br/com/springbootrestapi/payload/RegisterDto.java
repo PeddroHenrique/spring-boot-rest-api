@@ -4,6 +4,7 @@
  */
 package br.com.springbootrestapi.payload;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,28 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(
+        description = "RegisterDto Model Information"
+)
 public class RegisterDto {
+    
+    @Schema(
+            description = "Blog Register name"
+    )
     private String name;
+    
+    @Schema(
+            description = "Blog Register username"
+    )
     private String username;
+    
+    @Schema(
+            description = "Blog Register email"
+    )
     private String email;
+    
+    @Schema(
+            description = "Blog Register password"
+    )
     private String password;
 }
