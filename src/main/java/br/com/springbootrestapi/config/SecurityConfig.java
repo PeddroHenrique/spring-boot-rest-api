@@ -85,21 +85,4 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        UserDetails pedro = User.builder()
-//                .username("pedro")
-//                .password(passwordEncoder().encode("pedro"))
-//                .roles("USER")
-//                .build();
-//        
-//        UserDetails admin = User.builder()
-//                .username("admin")
-//                .password(passwordEncoder().encode("admin"))
-//                .roles("ADMIN")
-//                .build();
-//        
-//        return new InMemoryUserDetailsManager(pedro, admin);
-//    }
 }
