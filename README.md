@@ -5,9 +5,6 @@
 ## 🛠️ Tecnologias
 
 - java 17, Spring Boot MVC, Spring Security, Spring JPA;
-- Thymeleaf, HTML e Bootstrap;
-- PostgreSQL e Flyway;
-- JUnit e Mockito;
+- MySQL;
 - Git e Github;
-- Docker;
 - Swagger.
