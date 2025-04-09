@@ -52,7 +52,6 @@ public class AuthServiceImpl implements AuthService{
     public String login(LoginDto loginDto) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
             loginDto.getUsernameOrEmail(), loginDto.getPassword()));
-        
         SecurityContextHolder.getContext().setAuthentication(authentication);
         
         String token = jwtTokenProvider.generateToken(authentication);
@@ -78,6 +77,9 @@ public class AuthServiceImpl implements AuthService{
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
         
         Set<Role> roles = new HashSet<>();
+        if (user.getUsername().equals("admin")) {
+            roles.add(roleRepository.findByName("ROLE_ADMIN").get());
+        }
         Role userRole = roleRepository.findByName("ROLE_USER").get();
         roles.add(userRole);
         user.setRole(roles);
