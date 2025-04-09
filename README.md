@@ -1,6 +1,6 @@
 # Spring Boot Rest API
 
-**Aplicação rest que simula a uma rede social, onde é possivel criar usuários e realizar posts. Cada post pertence a uma categoria e pode ter vários comentários.**
+**Aplicação rest que simula a uma rede social, onde é possivel criar usuários e realizar posts. Cada post pertence a uma categoria e pode ter vários comentários. Utiliza JWT para autenticação dos usuários**
 
 ## 🛠️ Tecnologias
 
